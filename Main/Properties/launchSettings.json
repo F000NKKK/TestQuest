@@ -1,8 +1,7 @@
 {
   "profiles": {
     "Main": {
-      "commandName": "Project",
-      "commandLineArgs": "\"/Data/products.csv\" \"/Data/supplierOffers.csv\" \"/Data/stockItems.csv\""
+      "commandName": "Project"
     }
   }
 }

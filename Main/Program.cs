@@ -2,13 +2,17 @@
 using Main.Parsers;
 using Main.Services;
 
-class Program
+internal class Program
 {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
-        var productsFilePath = args[0];
-        var supplierOffersFilePath = args[1];
-        var stockItemsFilePath = args[2];
+        string projectDirectory = Directory.GetParent(path: AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+        string dataDirectory = Path.Combine(projectDirectory, "Data");
+
+        string productsFilePath = Path.Combine(dataDirectory, "products.csv");
+        string stockItemsFilePath = Path.Combine(dataDirectory, "stockItems.csv");
+        string supplierOffersFilePath = Path.Combine(dataDirectory, "supplierOffers.csv");
+
         var outputFilePath = "result.csv";
 
         var csvParser = new CsvParser();
