@@ -72,48 +72,48 @@ namespace Main.Parsers
 
 
         //Для тестов
-        //public IEnumerable<T> ParseFromString<T>(string csvData) where T : class, new()
-        //{
-        //    var lines = csvData.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-        //    var results = new List<T>();
+        public IEnumerable<T> ParseFromString<T>(string csvData) where T : class, new()
+        {
+            var lines = csvData.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            var results = new List<T>();
 
-        //    foreach (var line in lines)
-        //    {
-        //        var parts = line.Split(',');
-        //        T? item;
+            foreach (var line in lines)
+            {
+                var parts = line.Split(',');
+                T? item;
 
-        //        if (typeof(T) == typeof(Product))
-        //        {
-        //            item = new Product { Id = parts[0], Name = parts[1] } as T;
-        //        }
-        //        else if (typeof(T) == typeof(SupplierOffer))
-        //        {
-        //            item = new SupplierOffer
-        //            {
-        //                ProductId = parts[0],
-        //                Price = decimal.Parse(parts[1], CultureInfo.InvariantCulture),
-        //                Quantity = int.Parse(parts[2])
-        //            } as T;
-        //        }
-        //        else if (typeof(T) == typeof(StockItem))
-        //        {
-        //            item = new StockItem
-        //            {
-        //                ProductId = parts[0],
-        //                Price = decimal.Parse(parts[1], CultureInfo.InvariantCulture),
-        //                Quantity = int.Parse(parts[2])
-        //            } as T;
-        //        }
-        //        else
-        //        {
-        //            throw new InvalidOperationException("Unsupported type");
-        //        }
+                if (typeof(T) == typeof(Product))
+                {
+                    item = new Product { Id = parts[0], Name = parts[1] } as T;
+                }
+                else if (typeof(T) == typeof(SupplierOffer))
+                {
+                    item = new SupplierOffer
+                    {
+                        ProductId = parts[0],
+                        Price = decimal.Parse(parts[1], CultureInfo.InvariantCulture),
+                        Quantity = int.Parse(parts[2])
+                    } as T;
+                }
+                else if (typeof(T) == typeof(StockItem))
+                {
+                    item = new StockItem
+                    {
+                        ProductId = parts[0],
+                        Price = decimal.Parse(parts[1], CultureInfo.InvariantCulture),
+                        Quantity = int.Parse(parts[2])
+                    } as T;
+                }
+                else
+                {
+                    throw new InvalidOperationException("Unsupported type");
+                }
 
-        //        results.Add(item: item);
-        //    }
+                results.Add(item: item);
+            }
 
-        //    return results;
-        //}
+            return results;
+        }
 
     }
 }

@@ -30,11 +30,14 @@ internal class Program
 
         using (var writer = new StreamWriter(outputFilePath))
         {
-            writer.WriteLine("ProductId,CostPrice,TotalQuantity,HasData");
             foreach (var result in results)
             {
-                writer.WriteLine($"{result.ProductId},{result.CostPrice},{result.TotalQuantity},{result.HasData}");
+                if (result != null)
+                {
+                    writer.WriteLine($"{result.ProductId},{result.CostPrice},{result.TotalQuantity},{result.HasData}");
+                }
             }
+
         }
     }
 }
