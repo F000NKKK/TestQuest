@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Main.Models
 {
-    internal class StockItem
+    public class StockItem
     {
         public string ProductId { get; set; }
         public decimal Price { get; set; }

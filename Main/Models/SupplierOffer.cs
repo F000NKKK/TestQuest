@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Main.Models
 {
-    internal class SupplierOffer
+    public class SupplierOffer
     {
         public string ProductId { get; set; }
         public decimal Price { get; set; }

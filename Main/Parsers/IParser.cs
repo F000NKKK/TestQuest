@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Main.Parsers
 {
-    internal interface IParser<T>
+    public interface IParser<T>
     {
         IEnumerable<T> Parse(string filePath);
     }

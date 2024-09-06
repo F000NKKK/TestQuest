@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Main.Services
 {
-    internal class CalculationService : ICalculationService
+    public class CalculationService : ICalculationService
     {
         public CalculationResult Calculate(string productId, IEnumerable<SupplierOffer> supplierOffers, IEnumerable<StockItem> stockItems)
         {

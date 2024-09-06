@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Main.Services
 {
-    internal interface ICalculationService
+    public interface ICalculationService
     {
         CalculationResult Calculate(string productId, IEnumerable<SupplierOffer> supplierOffers, IEnumerable<StockItem> stockItems);
     }
