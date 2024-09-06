@@ -17,7 +17,7 @@ namespace Main.Parsers
 
             foreach (var line in lines)
             {
-                var parts = line.Split(';');
+                var parts = line.Split(',');
                 T? item;
 
                 if (typeof(T) == typeof(Product))
