@@ -1,6 +1,7 @@
 ﻿using Main.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace Main.Parsers
 
             foreach (var line in lines)
             {
-                var parts = line.Split(',');
-                T item;
+                var parts = line.Split(';');
+                T? item;
 
                 if (typeof(T) == typeof(Product))
                 {
@@ -25,18 +26,28 @@ namespace Main.Parsers
                 }
                 else if (typeof(T) == typeof(SupplierOffer))
                 {
-                    item = new SupplierOffer { ProductId = parts[0], Price = decimal.Parse(parts[1]), Quantity = int.Parse(parts[2]) } as T;
+                    item = new SupplierOffer
+                    {
+                        ProductId = parts[0],
+                        Price = decimal.Parse(parts[1], CultureInfo.InvariantCulture),
+                        Quantity = int.Parse(parts[2])
+                    } as T;
                 }
                 else if (typeof(T) == typeof(StockItem))
                 {
-                    item = new StockItem { ProductId = parts[0], Price = decimal.Parse(parts[1]), Quantity = int.Parse(parts[2]) } as T;
+                    item = new StockItem
+                    {
+                        ProductId = parts[0],
+                        Price = decimal.Parse(parts[1], CultureInfo.InvariantCulture),
+                        Quantity = int.Parse(parts[2])
+                    } as T;
                 }
                 else
                 {
                     throw new InvalidOperationException("Unsupported type");
                 }
 
-                results.Add(item);
+                results.Add(item: item);
             }
 
             return results;
